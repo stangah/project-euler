@@ -31,8 +31,8 @@ function arrayAdd(array1, array2) {
         arrayBig = array2.slice();
         arraySmall = array1.slice();
     }
-    for (var j = 0; j < arraySmall.length; j++) {
-        temp = arrayBig[j] + arraySmall[j];
+    for (var j = 0; j < arrayBig.length; j++) {
+        temp = arrayBig[j] + (arraySmall[j] || 0);
         ans.push((temp % 10) + remainder);
         remainder = Math.floor(temp / 10);
     }
@@ -52,9 +52,9 @@ function eulerTwentyFive(n) {
         last = look.slice();
         look = arrayAdd(last, last2).slice();
         if (look.length >= n) {
-            return look;
+            return i;
         }
     }
 }
 
-eulerTwentyFive(3);
+eulerTwentyFive(1000);
